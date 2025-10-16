@@ -1,0 +1,24 @@
+@use 'variables' as *;
+
+button {
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  &.disabled,
+  &.without-events {
+    pointer-events: none;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  &.outline {
+    border-radius: 0.2rem;
+    background: transparent;
+    border: 1px solid #979797;
+    box-shadow: 0 1px 1px 0 #c6c6c680;
+  }
+}

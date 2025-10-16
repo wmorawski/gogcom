@@ -1,1 +1,18 @@
-<h1>Game of the week</h1>
+@let featuredGame = gamesStore.featured();
+@let games = gamesStore.withoutFeatured();
+
+<div class="container">
+  <h1>Game of the week</h1>
+  @if (featuredGame) {
+    <gog-featured-game [game]="featuredGame" />
+  }
+  <div class="games">
+    @for (game of games; track game.id) {
+      <gog-game-card
+        [game]="game"
+        [isInCart]="cartStore.isInCart(game.id)"
+        (addToCart)="addToCart(game)"
+      />
+    }
+  </div>
+</div>

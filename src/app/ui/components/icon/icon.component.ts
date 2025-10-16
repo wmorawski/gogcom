@@ -8,14 +8,14 @@ const opacities: IconOpacity = {
 @Component({
   selector: 'gog-icon',
   imports: [],
-  templateUrl: './icon.html',
-  styleUrl: './icon.scss',
+  templateUrl: './icon.component.html',
+  styleUrl: './icon.component.scss',
   host: {
     '[style.width]': `size() + 'px'`,
     '[style.height]': `size() + 'px'`,
   },
 })
-export class Icon {
+export class IconComponent {
   public readonly name = input.required<IconName>();
   public readonly size = input<IconSize>(IconSize.Small);
   public readonly color = input<`${IconColor}`>(IconColor.Primary);

@@ -25,7 +25,7 @@ export const GamesStore = signalStore(
   withState(initialState),
   withComputed((store) => ({
     featured: computed(() => store.games().find((g) => g.gameOfTheWeek)),
-    discounted: computed(() => store.games().filter((g) => !!g.discount)),
+    withoutFeatured: computed(() => store.games().filter((game) => !game.gameOfTheWeek)),
   })),
   withMethods((store, gamesService = inject(GamesService)) => ({
     loadGames: rxMethod<void>((origin$) =>

@@ -1,5 +1,8 @@
 $default-container-padding: 11rem;
 
+$color-success: #00905e;
+$color-text-on-success: #f2f2f2;
+
 $background-white: #ffffff;
 $background-light: #cdcdcd;
 $background-gradient-primary: linear-gradient(
@@ -7,6 +10,7 @@ $background-gradient-primary: linear-gradient(
   rgba(108, 54, 173, 0.1) 0%,
   rgba(194, 194, 194, 0.0001) 100%
 );
+
 $background-gradient-light:
   linear-gradient(
     360deg,
@@ -23,6 +27,7 @@ $font-color-secondary: #404040;
 $font-weight-semi-bold: 600;
 $font-weight-bold: 700;
 
+$font-size-small: 1.3rem;
 $font-size-default: 1.4rem;
 $font-size-large: 1.5rem;
 

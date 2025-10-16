@@ -1,0 +1,31 @@
+@let gameVal = game();
+@let isInCartVal = isInCart();
+
+<div class="container">
+  <img [src]="gameVal.coverUrl" [alt]="gameVal.title" />
+  <div class="content">
+    {{ gameVal.title }}
+    <div class="actions">
+      @if (gameVal.discount && !gameVal.owned) {
+        <gog-badge variant="success">
+          {{ gameVal.discount | discount }}
+        </gog-badge>
+      }
+
+      <gog-button
+        variant="outline"
+        [disabled]="!!gameVal.owned"
+        [disablePointerEvents]="isInCartVal"
+        (click)="addToCart.emit()"
+      >
+        @if (gameVal.owned) {
+          OWNED
+        } @else if (isInCartVal) {
+          IN CART
+        } @else {
+          {{ gameVal.price | currency }}
+        }
+      </gog-button>
+    </div>
+  </div>
+</div>

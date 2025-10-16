@@ -1,13 +1,16 @@
-import { Component, signal, ViewEncapsulation } from '@angular/core';
-import { Icon } from '../../ui/components/icon/icon';
+import { Component, computed, input } from '@angular/core';
+import { IconComponent } from '../../ui/components/icon/icon.component';
+import { Game } from '../../types/games.types';
 
 @Component({
   selector: 'gog-cart-dropdown',
-  imports: [Icon],
+  imports: [IconComponent],
   templateUrl: './cart-dropdown.component.html',
   styleUrl: './cart-dropdown.component.scss',
-  encapsulation: ViewEncapsulation.Emulated,
 })
 export class CartDropdownComponent {
-  protected readonly cartItemsCount = signal(2);
+  public readonly items = input<Game[]>([]);
+  public readonly totalPrice = input<number>(0);
+
+  protected readonly itemsCount = computed(() => this.items().length);
 }

@@ -1,0 +1,10 @@
+@let variantVal = variant();
+@let disabledVal = disabled();
+@let disablePointerEventsVal = disablePointerEvents();
+<button
+  [class]="variantVal"
+  [class.disabled]="disabledVal"
+  [class.without-events]="disablePointerEvents()"
+>
+  <ng-content></ng-content>
+</button>
