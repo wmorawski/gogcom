@@ -31,7 +31,7 @@ export const CartStore = signalStore(
   })),
   withMethods((store) => ({
     add(game: Game) {
-      if (!store.entryIds().has(game.id)) {
+      if (!store.entryIds().has(game.id) && !game.owned) {
         const next = addOne(store.entries(), game);
         patchState(store, { entries: next });
       }

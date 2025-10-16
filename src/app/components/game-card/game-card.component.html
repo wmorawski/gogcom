@@ -4,7 +4,9 @@
 <div class="container">
   <img [src]="gameVal.coverUrl" [alt]="gameVal.title" />
   <div class="content">
-    {{ gameVal.title }}
+    <p class="game-title">
+      {{ gameVal.title }}
+    </p>
     <div class="actions">
       @if (gameVal.discount && !gameVal.owned) {
         <gog-badge variant="success">
@@ -13,6 +15,7 @@
       }
 
       <gog-button
+        class="game-price"
         variant="outline"
         [disabled]="!!gameVal.owned"
         [disablePointerEvents]="isInCartVal"

@@ -1,7 +1,18 @@
 .container {
+  position: relative;
   width: 100%;
 
   img {
+    position: relative;
     width: 100%;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+    z-index: 2;
+  }
+
+  gog-button {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
   }
 }
