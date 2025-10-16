@@ -1,0 +1,13 @@
+@use 'variables' as *;
+
+:host {
+  display: block;
+}
+
+.primary {
+  color: $font-color-primary;
+}
+
+.header {
+  color: $font-color-header;
+}

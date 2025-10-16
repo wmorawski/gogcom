@@ -1,0 +1,14 @@
+@use 'variables' as *;
+
+:host {
+  padding: 0 $default-container-padding;
+  width: 100%;
+  background: $background-gradient-light;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+gog-cart-dropdown {
+  height: 100%;
+}

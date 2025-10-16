@@ -1,0 +1,25 @@
+@use 'variables' as *;
+
+button {
+  display: flex;
+  flex-grow: 1;
+  cursor: pointer;
+  width: 60px;
+  height: 100%;
+  border: none;
+  background: none;
+  align-items: center;
+  justify-content: center;
+  gap: $padding-small-xx;
+  color: $font-color-secondary;
+  font-weight: $font-weight-semi-bold;
+
+  &:hover,
+  &:active,
+  .pressed {
+    background: $background-white;
+    border-width: 0 1px;
+    border-style: solid;
+    border-color: rgba(184, 184, 184, 0.5);
+  }
+}

@@ -1,0 +1,32 @@
+$default-container-padding: 11rem;
+
+$background-white: #ffffff;
+$background-light: #cdcdcd;
+$background-gradient-primary: linear-gradient(
+  180deg,
+  rgba(108, 54, 173, 0.1) 0%,
+  rgba(194, 194, 194, 0.0001) 100%
+);
+$background-gradient-light:
+  linear-gradient(
+    360deg,
+    rgba(220, 220, 220, 0.0001) 0.01%,
+    rgba(255, 255, 255, 0.5) 93.45%,
+    rgba(255, 255, 255, 0.49) 100%
+  ),
+  #dedede;
+
+$font-color-header: #262626;
+$font-color-primary: #212121;
+$font-color-secondary: #404040;
+
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+
+$font-size-default: 1.4rem;
+$font-size-large: 1.5rem;
+
+$padding: 1.2rem;
+$padding-small: 0.8rem;
+$padding-small-x: 0.4rem;
+$padding-small-xx: 0.2rem;
