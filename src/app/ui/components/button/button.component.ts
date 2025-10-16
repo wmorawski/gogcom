@@ -1,6 +1,12 @@
 import { Component, input } from '@angular/core';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'success';
+export type ButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'outline'
+  | 'success'
+  | 'underlined-ghost'
+  | 'gog';
 
 @Component({
   selector: 'gog-button',

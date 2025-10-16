@@ -29,4 +29,19 @@ button {
     border: 1px solid #979797;
     box-shadow: 0 1px 1px 0 #c6c6c680;
   }
+
+  &.underlined-ghost {
+    padding: 0;
+    text-transform: capitalize;
+    text-decoration: underline;
+    background: transparent;
+  }
+
+  &.gog {
+    background: linear-gradient(0deg, #7a3dc6 0%, #b65ae2 100%), #000000;
+    color: white;
+    padding: 1.1rem 3rem;
+    line-height: 2.2rem;
+    font-size: $font-size-default;
+  }
 }

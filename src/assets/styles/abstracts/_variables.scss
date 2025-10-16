@@ -7,7 +7,7 @@ $background-white: #ffffff;
 $background-light: #cdcdcd;
 $background-gradient-primary: linear-gradient(
   180deg,
-  rgba(108, 54, 173, 0.1) 0%,
+  rgba(108, 54, 173, 0.1) 10%,
   rgba(194, 194, 194, 0.0001) 100%
 );
 
@@ -23,6 +23,7 @@ $background-gradient-light:
 $font-color-header: #262626;
 $font-color-primary: #212121;
 $font-color-secondary: #404040;
+$font-color-gog: #5100dc;
 
 $font-weight-semi-bold: 600;
 $font-weight-bold: 700;

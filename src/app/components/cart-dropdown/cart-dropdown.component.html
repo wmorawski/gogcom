@@ -1,6 +1,36 @@
-<button>
+@let itemsCountVal = itemsCount();
+@let totalPriceVal = totalPrice();
+
+<button [gogDropdownTriggerFor]="dropdown" [class.pressed]="dropdown.dropdownOpen()">
   <gog-icon name="cart" color="header" />
-  @if (itemsCount()) {
-    {{ itemsCount() }}
-  }
+  {{ itemsCountVal }}
 </button>
+<gog-dropdown #dropdown>
+  <div class="cart-dropdown">
+    @if (itemsCountVal) {
+      <div class="cart-content">
+        <div class="cart-content-header">
+          <div class="cart-content-header-info">
+            <p>
+              {{ itemsCountVal | i18nPlural: itemsCountMapping }}
+            </p>
+            <p>
+              {{ totalPriceVal | currency }}
+            </p>
+          </div>
+          <gog-button (click)="$event.stopPropagation(); clearCart.emit()" variant="gog">
+            Clear cart
+          </gog-button>
+        </div>
+        @for (item of items(); track item.id) {
+          <gog-cart-dropdown-item [item]="item" (remove)="removeItem.emit(item)" />
+        }
+      </div>
+    } @else {
+      <div class="empty">
+        <gog-icon name="cart" [size]="IconSize.LargeX" color="gog"></gog-icon>
+        <p>Your cart is empty</p>
+      </div>
+    }
+  </div>
+</gog-dropdown>

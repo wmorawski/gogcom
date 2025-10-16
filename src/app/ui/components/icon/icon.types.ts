@@ -9,10 +9,13 @@ export enum IconSize {
   Small = 16,
   Medium = 24,
   Large = 32,
+  LargeX = 48,
+  LargeXX = 64,
 }
 
 export enum IconColor {
   Primary = 'primary',
+  Gog = 'gog',
   Header = 'header',
   Secondary = 'secondary',
   Success = 'success',

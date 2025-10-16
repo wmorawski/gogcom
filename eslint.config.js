@@ -32,6 +32,8 @@ module.exports = tseslint.config(
         },
       ],
       '@typescript-eslint/consistent-type-definitions': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@angular-eslint/template/interactive-supports-focus': 'warn',
     },
   },
   {
