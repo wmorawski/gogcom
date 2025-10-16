@@ -27,7 +27,10 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"]
+            "styles": ["src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/assets/styles/abstracts"]
+            }
           },
           "configurations": {
             "production": {
@@ -80,7 +83,10 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"]
+            "styles": ["src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/assets/styles/abstracts"]
+            }
           }
         },
         "lint": {

@@ -1,0 +1,47 @@
+@use 'variables' as *;
+
+button {
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: $font-color-secondary;
+
+  &.disabled,
+  &.without-events {
+    pointer-events: none;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  &.success {
+    padding: 1.1rem 0.6rem;
+    background: linear-gradient(0deg, #00905e 0%, #00c78c 100%), #000000;
+    box-shadow: 0px 1px 3px 0px #0000004d;
+    color: white;
+  }
+
+  &.outline {
+    border-radius: 0.2rem;
+    background: transparent;
+    border: 1px solid #979797;
+    box-shadow: 0 1px 1px 0 #c6c6c680;
+  }
+
+  &.underlined-ghost {
+    padding: 0;
+    text-transform: capitalize;
+    text-decoration: underline;
+    background: transparent;
+  }
+
+  &.gog {
+    background: linear-gradient(0deg, #7a3dc6 0%, #b65ae2 100%), #000000;
+    color: white;
+    padding: 1.1rem 3rem;
+    line-height: 2.2rem;
+    font-size: $font-size-default;
+  }
+}

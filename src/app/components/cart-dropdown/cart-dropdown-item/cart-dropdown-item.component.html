@@ -1,0 +1,15 @@
+@let itemVal = item();
+<div class="container">
+  <div class="img-wrapper">
+    <img [ngSrc]="itemVal.coverUrl" [alt]="itemVal.title" fill />
+  </div>
+  <div class="content">
+    <p class="title">
+      {{ itemVal.title }}
+    </p>
+    <gog-button variant="underlined-ghost" (click)="$event.stopPropagation(); remove.emit()">
+      Remove
+    </gog-button>
+  </div>
+  <p class="price">{{ itemVal.price | currency }}</p>
+</div>

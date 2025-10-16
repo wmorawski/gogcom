@@ -1,0 +1,49 @@
+@use 'variables' as *;
+
+.container {
+  border: 0 solid rgba(184, 184, 184, 0.3);
+  border-top-width: 1px;
+  padding: 0.6rem 0.8rem 0.6rem 0.6rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 100%;
+  gap: 0.9rem;
+  color: $font-color-primary;
+
+  .img-wrapper {
+    position: relative;
+    width: 10rem;
+    height: 6rem;
+    flex-shrink: 0;
+  }
+
+  .price {
+    color: $font-color-secondary;
+  }
+
+  .content {
+    flex-grow: 1;
+    overflow: hidden;
+
+    .title {
+      overflow: hidden;
+      min-width: 0;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: $font-size-default;
+      font-weight: $font-weight-semi-bold;
+    }
+
+    gog-button {
+      display: none;
+    }
+
+    &:hover {
+      gog-button {
+        display: block;
+      }
+    }
+  }
+}

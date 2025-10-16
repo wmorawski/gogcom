@@ -1,0 +1,7 @@
+@let gameValue = game();
+<div class="container">
+  <img [src]="gameValue.coverUrl" [alt]="gameValue.title" />
+  <gog-button variant="success" (click)="reveal()"
+    >A secret button that you should totally implement</gog-button
+  >
+</div>

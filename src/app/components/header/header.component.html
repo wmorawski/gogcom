@@ -1,0 +1,9 @@
+@let cartItems = cartStore.entries();
+@let totalPrice = cartStore.totalPrice();
+<img [ngSrc]="'images/logo.png'" alt="logo" width="43" height="37" />
+<gog-cart-dropdown
+  [items]="cartItems"
+  [totalPrice]="totalPrice"
+  (clearCart)="cartStore.clear()"
+  (removeItem)="cartStore.remove($event.id)"
+/>
