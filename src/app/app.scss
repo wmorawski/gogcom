@@ -10,9 +10,13 @@
 }
 
 main {
-  padding: 2.8rem $default-container-padding 3.8rem $default-container-padding;
+  padding: 2.8rem $container-padding-default 3.8rem $container-padding-default;
   background: $background-gradient-primary;
   flex-grow: 1;
+
+  @media screen and (max-width: 768px) {
+    padding: 2.8rem $container-padding-small 3.8rem $container-padding-small;
+  }
 }
 
 gog-header {

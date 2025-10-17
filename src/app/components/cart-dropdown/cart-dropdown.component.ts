@@ -1,4 +1,4 @@
-import { Component, computed, input, output, OnInit } from '@angular/core';
+import { Component, computed, input, output } from '@angular/core';
 import { IconComponent } from '../../ui/components/icon/icon.component';
 import { Game } from '../../types/games.types';
 import { DropdownTriggerForDirective } from '../../directives/dropdown-trigger-for.directive';
@@ -22,7 +22,7 @@ import { CartDropdownItemComponent } from './cart-dropdown-item/cart-dropdown-it
   templateUrl: './cart-dropdown.component.html',
   styleUrl: './cart-dropdown.component.scss',
 })
-export class CartDropdownComponent implements OnInit {
+export class CartDropdownComponent {
   public readonly items = input<Game[]>([]);
   public readonly totalPrice = input<number>(0);
 
@@ -37,8 +37,4 @@ export class CartDropdownComponent implements OnInit {
     '=1': '1 item in cart',
     other: '# items in cart',
   };
-
-  public ngOnInit() {
-    this.removeItem.subscribe(console.log);
-  }
 }
