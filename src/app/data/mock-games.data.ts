@@ -1,4 +1,4 @@
-import { Game } from '../types/games.types';
+import { Game } from 'types/games.types';
 
 export const MOCK_GAMES: Game[] = [
   {

@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 export type BadgeVariant = 'success' | 'info' | 'warning';
 
@@ -10,6 +10,7 @@ export type BadgeVariant = 'success' | 'info' | 'warning';
   host: {
     '[class]': 'variant()',
   },
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BadgeComponent {
   public readonly variant = input<BadgeVariant>('info');

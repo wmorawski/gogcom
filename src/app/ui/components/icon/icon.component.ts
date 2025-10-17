@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { AllIcons, IconColor, IconName, IconOpacity, IconSize } from './icon.types';
 
 const opacities: IconOpacity = {
@@ -14,6 +14,7 @@ const opacities: IconOpacity = {
     '[style.width]': `size() + 'px'`,
     '[style.height]': `size() + 'px'`,
   },
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconComponent {
   public readonly name = input.required<IconName>();

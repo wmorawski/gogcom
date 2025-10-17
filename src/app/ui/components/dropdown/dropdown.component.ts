@@ -1,11 +1,20 @@
-import { Component, EventEmitter, Output, signal, TemplateRef, viewChild } from '@angular/core';
-import { DropdownPanel } from '../../../directives/dropdown-trigger-for.directive';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output,
+  signal,
+  TemplateRef,
+  viewChild,
+} from '@angular/core';
+import { DropdownPanel } from '@directives/dropdown-trigger-for.directive';
 
 @Component({
   selector: 'gog-dropdown',
   imports: [],
   templateUrl: './dropdown.component.html',
   styleUrl: './dropdown.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropdownComponent implements DropdownPanel {
   @Output() public closed = new EventEmitter();

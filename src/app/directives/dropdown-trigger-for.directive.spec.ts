@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
 import { DropdownTriggerForDirective } from './dropdown-trigger-for.directive';
-import { DropdownComponent } from '../ui/components/dropdown/dropdown.component';
+import { DropdownComponent } from '@ui/components/dropdown/dropdown.component';
 
 @Component({
   selector: 'gog-host',

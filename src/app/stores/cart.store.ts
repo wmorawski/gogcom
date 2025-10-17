@@ -1,6 +1,6 @@
 import { computed } from '@angular/core';
 import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
-import { Game } from '../types/games.types';
+import { Game } from 'types/games.types';
 import { withStorageSync } from '@angular-architects/ngrx-toolkit';
 
 const LS_KEY = 'gog-user-cart';

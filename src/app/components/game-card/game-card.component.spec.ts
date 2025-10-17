@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { GameCardComponent } from './game-card.component';
-import { Game } from '../../types/games.types';
+import { Game } from 'types/games.types';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 

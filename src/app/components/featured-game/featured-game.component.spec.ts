@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FeaturedGameComponent } from './featured-game.component';
-import { Game } from '../../types/games.types';
+import { Game } from 'types/games.types';
 import { ComponentRef } from '@angular/core';
 
 describe('FeaturedGameComponent', () => {

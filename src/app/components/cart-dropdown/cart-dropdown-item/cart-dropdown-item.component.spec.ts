@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CartDropdownItemComponent } from './cart-dropdown-item.component';
-import { Game } from '../../../types/games.types';
+import { Game } from 'types/games.types';
 import { By } from '@angular/platform-browser';
 
 describe('CartDropdownItemComponent', () => {

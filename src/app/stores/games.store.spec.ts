@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { GamesStore } from './games.store';
-import { GamesService } from '../services/games.service';
+import { GamesService } from '@services/games.service';
 import { of } from 'rxjs';
-import { Game } from '../types/games.types';
+import { Game } from 'types/games.types';
 
 describe('GamesStore', () => {
   let store: InstanceType<typeof GamesStore>;
