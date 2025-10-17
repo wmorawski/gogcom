@@ -1,7 +1,11 @@
 @let itemsCountVal = itemsCount();
 @let totalPriceVal = totalPrice();
 
-<button [gogDropdownTriggerFor]="dropdown" [class.pressed]="dropdown.dropdownOpen()">
+<button
+  [gogDropdownTriggerFor]="dropdown"
+  [preventCloseOnClick]="true"
+  [class.pressed]="dropdown.dropdownOpen()"
+>
   <gog-icon name="cart" color="header" />
   {{ itemsCountVal }}
 </button>
@@ -18,9 +22,7 @@
               {{ totalPriceVal | currency }}
             </p>
           </div>
-          <gog-button (click)="$event.stopPropagation(); clearCart.emit()" variant="gog">
-            Clear cart
-          </gog-button>
+          <gog-button (click)="clearCart.emit()" variant="gog"> Clear cart</gog-button>
         </div>
         @for (item of items(); track item.id) {
           <gog-cart-dropdown-item [item]="item" (remove)="removeItem.emit(item)" />

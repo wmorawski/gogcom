@@ -7,9 +7,7 @@
     <p class="title">
       {{ itemVal.title }}
     </p>
-    <gog-button variant="underlined-ghost" (click)="$event.stopPropagation(); remove.emit()">
-      Remove
-    </gog-button>
+    <gog-button variant="underlined-ghost" (click)="remove.emit()">Remove</gog-button>
   </div>
   <p class="price">{{ itemVal.price | currency }}</p>
 </div>
