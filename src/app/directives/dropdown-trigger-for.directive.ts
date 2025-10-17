@@ -30,6 +30,7 @@ export class DropdownTriggerForDirective {
   public readonly dropdownPanel = input<DropdownPanel>(undefined, {
     alias: 'gogDropdownTriggerFor',
   });
+  public readonly preventCloseOnClick = input(false);
   private overlayRef?: OverlayRef;
   private overlay = inject(Overlay);
   private elementRef = inject(ElementRef<HTMLElement>);
@@ -37,8 +38,9 @@ export class DropdownTriggerForDirective {
   private dropdownClosingActionsSub = Subscription.EMPTY;
 
   public toggleDropdown() {
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    this.isDropdownOpen ? this.destroyDropdown() : this.openDropdown();
+    return this.isDropdownOpen && !this.preventCloseOnClick()
+      ? this.destroyDropdown()
+      : this.openDropdown();
   }
 
   openDropdown(): void {
@@ -75,7 +77,9 @@ export class DropdownTriggerForDirective {
   private dropdownClosingActions(): Observable<MouseEvent | void> {
     const backdropClick$ = this.overlayRef!.backdropClick();
     const detachment$ = this.overlayRef!.detachments();
-    const dropdownClosed = this.dropdownPanel()!.closed;
+    const dropdownClosed = this.preventCloseOnClick()
+      ? new EventEmitter()
+      : this.dropdownPanel()!.closed;
 
     return merge(backdropClick$, detachment$, dropdownClosed);
   }

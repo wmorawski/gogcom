@@ -1,80 +1,113 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CartDropdownComponent } from './cart-dropdown.component';
 import { Game } from '../../types/games.types';
-import { ComponentRef } from '@angular/core';
+import { By } from '@angular/platform-browser';
+import { OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
+
+function makeGame(id: number, price = 10): Game {
+  return { id, title: `Game ${id}`, coverUrl: 'img.png', price };
+}
 
 describe('CartDropdownComponent', () => {
-  let component: CartDropdownComponent;
   let fixture: ComponentFixture<CartDropdownComponent>;
-  let componentRef: ComponentRef<CartDropdownComponent>;
-
-  const mockItems: Game[] = [
-    {
-      id: 1,
-      title: 'Game 1',
-      coverUrl: 'game1.jpg',
-      price: 29.99,
-    },
-    {
-      id: 2,
-      title: 'Game 2',
-      coverUrl: 'game2.jpg',
-      price: 49.99,
-    },
-  ];
+  let component: CartDropdownComponent;
+  let overlayContainer: OverlayContainer;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CartDropdownComponent],
+      imports: [OverlayModule, CartDropdownComponent],
     }).compileComponents();
+
+    overlayContainer = TestBed.inject(OverlayContainer);
 
     fixture = TestBed.createComponent(CartDropdownComponent);
     component = fixture.componentInstance;
-    componentRef = fixture.componentRef;
+  });
+
+  function openDropdown() {
+    const btn = fixture.debugElement.query(By.css('button'));
+    btn.triggerEventHandler('click');
     fixture.detectChanges();
-  });
+  }
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  function overlayEl(): HTMLElement {
+    return overlayContainer.getContainerElement();
+  }
 
-  it('should have items input with default empty array', () => {
-    expect(component.items()).toEqual([]);
-  });
-
-  it('should have totalPrice input with default 0', () => {
-    expect(component.totalPrice()).toBe(0);
-  });
-
-  it('should accept items input', () => {
-    componentRef.setInput('items', mockItems);
+  it('should show empty state when there are no items', () => {
+    fixture.componentRef.setInput('items', []);
+    fixture.componentRef.setInput('totalPrice', 0);
     fixture.detectChanges();
-    expect(component.items()).toEqual(mockItems);
+
+    openDropdown();
+
+    const empty = overlayEl().querySelector('.empty') as HTMLElement;
+    expect(empty).toBeTruthy();
+    expect(empty.textContent).toContain('Your cart is empty');
   });
 
-  it('should accept totalPrice input', () => {
-    componentRef.setInput('totalPrice', 79.98);
+  it('should render header with item count and total price when items exist', () => {
+    const items = [makeGame(1, 9.99), makeGame(2, 5)];
+    fixture.componentRef.setInput('items', items);
+    fixture.componentRef.setInput('totalPrice', 14.99);
     fixture.detectChanges();
-    expect(component.totalPrice()).toBe(79.98);
+
+    openDropdown();
+
+    const headerInfo = overlayEl().querySelector('.cart-content-header-info') as HTMLElement;
+    expect(headerInfo).toBeTruthy();
+    expect(headerInfo.textContent).toContain('2 items in cart');
+    expect(headerInfo.textContent).toContain('14.99');
   });
 
-  it('should compute itemsCount correctly', () => {
-    expect(component['itemsCount']()).toBe(0);
+  it('should emit clearCart when Clear cart button clicked', () => {
+    const items = [makeGame(1)];
+    fixture.componentRef.setInput('items', items);
+    fixture.componentRef.setInput('totalPrice', 10);
 
-    componentRef.setInput('items', mockItems);
+    const spy = jasmine.createSpy('clear');
+    component.clearCart.subscribe(spy);
+
     fixture.detectChanges();
-    expect(component['itemsCount']()).toBe(2);
+    openDropdown();
+
+    const clearBtn = overlayEl().querySelector('gog-button') as HTMLElement;
+    clearBtn.dispatchEvent(new Event('click'));
+    fixture.detectChanges();
+
+    expect(spy).toHaveBeenCalled();
   });
 
-  it('should compute itemsCount correctly for empty cart', () => {
-    componentRef.setInput('items', []);
+  it('should emit removeItem from child remove click', () => {
+    const items = [makeGame(1)];
+    fixture.componentRef.setInput('items', items);
+    fixture.componentRef.setInput('totalPrice', 10);
+
+    const spy = jasmine.createSpy('remove');
+    component.removeItem.subscribe(spy);
+
     fixture.detectChanges();
-    expect(component['itemsCount']()).toBe(0);
+    openDropdown();
+
+    const childRemoveBtn = overlayEl().querySelector('gog-cart-dropdown-item gog-button');
+    (childRemoveBtn as HTMLElement).dispatchEvent(new Event('click'));
+    fixture.detectChanges();
+
+    expect(spy).toHaveBeenCalledWith(items[0]);
   });
 
-  it('should compute itemsCount correctly for single item', () => {
-    componentRef.setInput('items', [mockItems[0]]);
+  it('trigger shows items count and pressed class when open', () => {
+    const items = [makeGame(1), makeGame(2)];
+    fixture.componentRef.setInput('items', items);
+    fixture.componentRef.setInput('totalPrice', 20);
     fixture.detectChanges();
-    expect(component['itemsCount']()).toBe(1);
+
+    const trigger = fixture.debugElement.query(By.css('button')).nativeElement as HTMLButtonElement;
+    expect(trigger.textContent).toContain('2');
+    expect(trigger.classList.contains('pressed')).toBeFalse();
+
+    openDropdown();
+
+    expect(trigger.classList.contains('pressed')).toBeTrue();
   });
 });

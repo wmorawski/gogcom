@@ -1,4 +1,5 @@
-$default-container-padding: 11rem;
+$container-padding-default: 11rem;
+$container-padding-small: $container-padding-default / 3;
 
 $color-success: #00905e;
 $color-text-on-success: #f2f2f2;

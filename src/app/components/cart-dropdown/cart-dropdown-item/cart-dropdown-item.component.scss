@@ -12,6 +12,14 @@
   gap: 0.9rem;
   color: $font-color-primary;
 
+  &:hover {
+    .content {
+      gog-button {
+        display: block;
+      }
+    }
+  }
+
   .img-wrapper {
     position: relative;
     width: 10rem;
@@ -26,6 +34,10 @@
   .content {
     flex-grow: 1;
     overflow: hidden;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
 
     .title {
       overflow: hidden;
@@ -37,13 +49,8 @@
     }
 
     gog-button {
+      align-self: flex-start;
       display: none;
-    }
-
-    &:hover {
-      gog-button {
-        display: block;
-      }
     }
   }
 }

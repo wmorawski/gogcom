@@ -1,12 +1,16 @@
 @use 'variables' as *;
 
 :host {
-  padding: 0 $default-container-padding;
+  padding: 0 $container-padding-default;
   width: 100%;
   background: $background-gradient-light;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 $container-padding-small;
+  }
 }
 
 gog-cart-dropdown {
