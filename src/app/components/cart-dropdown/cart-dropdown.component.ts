@@ -1,4 +1,4 @@
-import { Component, computed, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { IconComponent } from '../../ui/components/icon/icon.component';
 import { Game } from '../../types/games.types';
 import { DropdownTriggerForDirective } from '../../directives/dropdown-trigger-for.directive';
@@ -21,6 +21,7 @@ import { CartDropdownItemComponent } from './cart-dropdown-item/cart-dropdown-it
   ],
   templateUrl: './cart-dropdown.component.html',
   styleUrl: './cart-dropdown.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartDropdownComponent {
   public readonly items = input<Game[]>([]);

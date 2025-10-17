@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { CartStore } from './cart.store';
-import { Game } from '../types/games.types';
+import { Game } from 'types/games.types';
 
 describe('CartStore', () => {
   let store: InstanceType<typeof CartStore>;

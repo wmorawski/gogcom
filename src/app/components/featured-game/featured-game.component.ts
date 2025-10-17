@@ -1,6 +1,6 @@
-import { Component, input } from '@angular/core';
-import { Game } from '../../types/games.types';
-import { ButtonComponent } from '../../ui/components/button/button.component';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Game } from 'types/games.types';
+import { ButtonComponent } from '@ui/components/button/button.component';
 import { confetti } from '@tsparticles/confetti';
 
 @Component({
@@ -8,6 +8,7 @@ import { confetti } from '@tsparticles/confetti';
   imports: [ButtonComponent],
   templateUrl: './featured-game.component.html',
   styleUrl: './featured-game.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeaturedGameComponent {
   public readonly game = input.required<Game>();

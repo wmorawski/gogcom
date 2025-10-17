@@ -8,8 +8,8 @@ import {
   withState,
 } from '@ngrx/signals';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
-import { Game } from '../types/games.types';
-import { GamesService } from '../services/games.service';
+import { Game } from 'types/games.types';
+import { GamesService } from '@services/games.service';
 import { switchMap, tap } from 'rxjs';
 
 export type GamesState = {

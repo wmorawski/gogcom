@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { GamesStore } from '../../stores/games.store';
-import { CartStore } from '../../stores/cart.store';
-import { Game } from '../../types/games.types';
-import { FeaturedGameComponent } from '../../components/featured-game/featured-game.component';
-import { GameCardComponent } from '../../components/game-card/game-card.component';
+import { GamesStore } from '@stores/games.store';
+import { CartStore } from '@stores/cart.store';
+import { Game } from 'types/games.types';
+import { FeaturedGameComponent } from '@components/featured-game/featured-game.component';
+import { GameCardComponent } from '@components/game-card/game-card.component';
 
 @Component({
   selector: 'gog-home',
