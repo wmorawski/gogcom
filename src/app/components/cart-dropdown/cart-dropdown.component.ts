@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
-import { IconComponent } from '../../ui/components/icon/icon.component';
-import { Game } from '../../types/games.types';
-import { DropdownTriggerForDirective } from '../../directives/dropdown-trigger-for.directive';
-import { DropdownComponent } from '../../ui/components/dropdown/dropdown.component';
-import { IconSize } from '../../ui/components/icon/icon.types';
-import { ButtonComponent } from '../../ui/components/button/button.component';
+import { IconComponent } from '@ui/components/icon/icon.component';
+import { Game } from 'types/games.types';
+import { DropdownTriggerForDirective } from '@directives/dropdown-trigger-for.directive';
+import { DropdownComponent } from '@ui/components/dropdown/dropdown.component';
+import { IconSize } from '@ui/components/icon/icon.types';
+import { ButtonComponent } from '@ui/components/button/button.component';
 import { CurrencyPipe, I18nPluralPipe } from '@angular/common';
 import { CartDropdownItemComponent } from './cart-dropdown-item/cart-dropdown-item.component';
 

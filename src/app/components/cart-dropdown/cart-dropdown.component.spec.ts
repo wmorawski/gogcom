@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CartDropdownComponent } from './cart-dropdown.component';
-import { Game } from '../../types/games.types';
+import { Game } from 'types/games.types';
 import { By } from '@angular/platform-browser';
 import { OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
 

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
-import { Game } from '../../../types/games.types';
+import { Game } from 'types/games.types';
 import { CurrencyPipe, NgOptimizedImage } from '@angular/common';
-import { ButtonComponent } from '../../../ui/components/button/button.component';
+import { ButtonComponent } from '@ui/components/button/button.component';
 
 @Component({
   selector: 'gog-cart-dropdown-item',
